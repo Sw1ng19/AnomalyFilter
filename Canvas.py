@@ -6,6 +6,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def drawLine(thpList, cpuList):
     # plot the origin line
     x = range(0, len(thpList))

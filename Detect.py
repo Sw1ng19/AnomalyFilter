@@ -3,14 +3,14 @@
 # Mail: lishiyun19@163.com
 # Created Time: Tue Sep 19 14:20:55 2017
 
-import reader
+import Reader as reader
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.ensemble import IsolationForest
-import canvas
+import Canvas as canvas
 
 thps_key = 'data.total_bytes_received'
 cpus_key = 'avg(data.pct_cpu)'
+
 
 def detect():
     # read the data
@@ -27,7 +27,11 @@ def detect():
     cpuList = []
     thpSum = 0
     cpuSum = 0
-    while (i < length):
+
+    print thpList
+    print cpuList
+
+    while i < length:
         thpList.append(thpDict[i][thps_key])
         thpSum += float(thpDict[i][thps_key])
         cpuList.append(cpuDict[i][cpus_key])
@@ -41,7 +45,7 @@ def detect():
 
     # normalization data
     i = 0
-    while (i < length):
+    while i < length:
         thp = float(thpList[i])/1024.0**3
         cpu = float(cpuList[i])/100.0
         xOrigin.append([cpu, thp])
@@ -76,7 +80,7 @@ def detect():
     length = len(thpList)
     xOrigin = []
     i = 0
-    while (i < length):
+    while i < length:
         thp = float(thpList[i]) / 1024.0 ** 3
         cpu = float(cpuList[i]) / 100.0
         xOrigin.append([cpu, thp])
@@ -84,6 +88,7 @@ def detect():
 
     xTrain = np.array(xOrigin)
     canvas.drawScatter(clf, xTrain)
+
 
 if __name__ == "__main__":
     detect()

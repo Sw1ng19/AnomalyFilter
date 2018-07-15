@@ -5,6 +5,7 @@
 
 import csv
 
+
 def read():
     with open('HEC.csv', 'rb') as file:
         reader = csv.DictReader(file)
