@@ -108,8 +108,8 @@ python Detect.py
 初始数据散点图
 ![](results/2.jpg)
 
-过滤数据数据
+过滤后数据折线图
 ![](results/3.jpg)
 
-过滤数据散点
+过滤后数据散点图
 ![](results/4.jpg)
